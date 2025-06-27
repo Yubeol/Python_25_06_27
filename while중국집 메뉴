@@ -1,0 +1,30 @@
+#중국집 메뉴
+while True: # 무조건 반복, 무한 반복. 반복구문 내에 종료할 수 있는 코드 삽입(break).
+    print('====menu====')
+    print('1.짜장면')
+    print('2.짬뽕')
+    print('3.우동')
+    print('4.볶음밥')
+    print('0.종료.')
+    print('===========')
+    print('선택:', end=' ')
+    sel = int(input())
+
+    if sel == 0:
+        print('안녕히 가세요~')
+        break # 블록에서 벗어나라
+    elif sel > 4:
+        print('그 메뉴는 없습니다, 다시 입력해 주세요')
+        continue # 블록내에서 다음 문장을 실행하지 않고 반복의 시작으로 이동.
+    else:
+        ea = int(input('몇인분: '))# 이 시점에서만 몇인분 물어봄
+        if sel == 1:
+            menu = '짜장면'
+        elif sel == 2:
+            menu = '짬뽕'
+        elif sel == 3:
+            menu = '우동'
+        elif sel == 4:
+            menu = '볶음밥'
+
+        print('%s가 %d그릇 나왔습니다. 맛있게 드세요~' % (menu, ea))
