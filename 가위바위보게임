@@ -1,0 +1,55 @@
+#srpGame.py
+#random: 무작위의 숫자를 생성
+#사용자가 가위바위보 중 선택. 컴퓨터의 선택(사용자가 골라야 한다.)
+#사용자와 컴퓨터의 비교
+#이름 전적 출력
+#가위바위보: 0:가위 1:바위 2:보
+# 컴퓨터-사용자: -2, -1, 0, 1 , 2 => 비긴경우 -2, 1:패배, -1, 2: 승리
+#이겼을때, 졌을때, 게임할때 마다 1씩 증가. 전승패, 승/게=승률
+
+import random as r
+# total=0
+# winCnt=0
+# loseCnt=0
+total=winCnt=loseCnt=drawCnt=0
+while True:
+    user=int(input("선택[0:가위,1:바위,2:보,9:끝]: "))
+
+    if user!=0 and user!=1 and user!=2 and user!=9:
+        print('다시해')
+        continue
+
+    if user==9:
+        break
+
+    total+=1
+
+    if user==0:
+        print('당신은 가위를 냈습니다.')
+    elif user==1:
+        print('당신은 바위를 냈습니다.')
+    else:
+        print('당신은 보를 냈습니다.')
+
+    com = r.randint(0, 2)
+    if com==0:
+        print('컴퓨터는 가위를 냈습니다.')
+    elif com==1:
+        print('컴퓨터는 바위를 냈습니다.')
+    else:
+        print('컴퓨터는 보를 냈습니다.')
+
+
+    res = com - user
+    if res==0:
+        print('비겼니다. 다시')
+        drawCnt+=1
+    elif res==1 or res==2:
+        print('당신이 이겼습니다. 축하합니다~')
+        winCnt+=1
+    else:
+        print('당신은 졌습니다. 유감')
+    loseCnt+=1
+
+print(f'당신의 전적은 {total}전{winCnt}승{drawCnt}무{loseCnt}패. 승률 {winCnt/total*100:.2f}%입니다.')
+print('증거운 시간 되셨나요. 잘가세요~')
