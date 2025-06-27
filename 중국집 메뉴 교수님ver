@@ -10,8 +10,8 @@ while True:
     print('선택:', end=' ')
     sel = int(input())
 
-    if 1<=sel and sel<=4:
-        ea = int(input('몇인분: '))
+    # if 1<=sel and sel<=4:
+    #     ea = int(input('몇인분: '))
 
     if sel == 1:
         menu='짜장면'
@@ -28,4 +28,5 @@ while True:
         print('그 메뉴는 없습니다, 다시 입력해 주세요')
         continue
 
+    ea = int(input('몇인분: '))
     print('%s가 %d그릇 내왔습니다. 맛있게 드세요~'%(menu,ea))
